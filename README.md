@@ -1,1 +1,1 @@
-# IPHub Client
+# IPHub Client [![Build Status](https://travis-ci.com/Hun1eR/IPHub-Client.svg?branch=master)](https://travis-ci.com/Hun1eR/IPHub-Client) [![Download](https://badgen.net/github/release/Hun1eR/IPHub-Client)](https://github.com/Hun1eR/IPHub-Client/releases/latest) ![Platform](https://badgen.net/badge/platform/linux%20%7C%20windows/gray) [![License](https://img.shields.io/github/license/Hun1eR/IPHub-Client)](https://github.com/Hun1eR/IPHub-Client/blob/master/LICENSE)
