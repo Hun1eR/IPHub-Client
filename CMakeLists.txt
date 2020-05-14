@@ -56,13 +56,15 @@ set_binary_output_directory("bin")
 #-------------------------------------------------------------------------------------------
 
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
-    "deps/httprequest/include"
-    "deps/nlohmann/include"
     "sdk/cssdk/include"
     "sdk/metamod/include"
     "sdk/amxx/include"
     "iphub_client/include"
 )
+
+# Set the SYSTEM flag to suppress -Weffc++ warnings.
+target_include_directories(${CMAKE_PROJECT_NAME} SYSTEM PRIVATE "deps/httprequest/include")
+target_include_directories(${CMAKE_PROJECT_NAME} SYSTEM PRIVATE "deps/nlohmann/include")
 
 
 #-------------------------------------------------------------------------------------------

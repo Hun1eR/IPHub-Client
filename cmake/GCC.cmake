@@ -5,7 +5,7 @@
 # Diagnostic flags
 target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE
     -Wall -Wextra -Wpedantic -Weffc++
-    -Wunused -Wold-style-cast -Wcast-align -Wlogical-op -Wnull-dereference
+    -Wunused -Wuseless-cast -Wold-style-cast -Wcast-align -Wlogical-op -Wnull-dereference
     -Wredundant-decls -Wdouble-promotion -Wimplicit-fallthrough=5
     -Wno-non-virtual-dtor
 
