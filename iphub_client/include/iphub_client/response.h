@@ -39,21 +39,21 @@ public:
 	/// </summary>
 	[[nodiscard]] std::string get_ip() const
 	{
-		return std::string(json_.value("ip", std::string()));
+		return json_.value("ip", std::string());
 	}
 
 	/// <summary>
 	/// </summary>
 	[[nodiscard]] std::string get_country_code() const
 	{
-		return std::string(json_.value("countryCode", std::string()));
+		return json_.value("countryCode", std::string());
 	}
 
 	/// <summary>
 	/// </summary>
 	[[nodiscard]] std::string get_country_name() const
 	{
-		return std::string(json_.value("countryName", std::string()));
+		return json_.value("countryName", std::string());
 	}
 
 	/// <summary>
@@ -67,7 +67,7 @@ public:
 	/// </summary>
 	[[nodiscard]] std::string get_isp() const
 	{
-		return std::string(json_.value("isp", std::string()));
+		return json_.value("isp", std::string());
 	}
 
 	/// <summary>
@@ -81,7 +81,7 @@ public:
 	/// </summary>
 	[[nodiscard]] std::string get_error() const
 	{
-		return std::string(json_.value("error", std::string()));
+		return json_.value("error", std::string());
 	}
 
 private:
