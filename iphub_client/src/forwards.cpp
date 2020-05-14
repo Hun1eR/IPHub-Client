@@ -114,6 +114,6 @@ void Forwards::response_received(const Request& request, const Response& respons
 	set_iphub_data(data, &IpHubData::isp, response.get_isp());
 	set_iphub_data(data, &IpHubData::error, response.get_error());
 
-	auto array_id = AmxxApi::prepare_cell_array(reinterpret_cast<cell*>(&data), sizeof(data) / sizeof(cell));
+	auto array_id = AmxxApi::prepare_cell_array(reinterpret_cast<cell*>(&data), sizeof data / sizeof(cell));
 	AmxxApi::execute_forward(g_response_received, request.id(), array_id, response.get_status());
 }

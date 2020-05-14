@@ -36,7 +36,7 @@ static CVar* cvar_cache_lookup(const char* cvar_name)
 /// </summary>
 static CVar* register_cvar(CVar* new_cvar)
 {
-	auto cvar = cvar_cache_lookup(new_cvar->name);
+	auto* cvar = cvar_cache_lookup(new_cvar->name);
 
 	if (cvar)
 		return cvar;

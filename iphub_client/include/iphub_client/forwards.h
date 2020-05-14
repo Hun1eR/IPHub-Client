@@ -14,7 +14,7 @@
 /// Class Forwards.
 /// </summary>
 class Forwards final : public RequestObserver {
-public:	
+public:
 	/// <summary>
 	/// </summary>
 	static void register_forwards();

@@ -68,7 +68,7 @@ void BackgroundWorker::on_start_frame_post()
 		RETURN_META(MetaResult::Ignored);
 
 	auto it = g_running_tasks.begin();
-	const auto end = g_running_tasks.end();
+	const auto& end = g_running_tasks.end();
 
 	while (!g_stop && it != end) {
 		if (!it->is_complete()) {

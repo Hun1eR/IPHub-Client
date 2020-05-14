@@ -32,7 +32,7 @@ static bool check_string_buffer_size(Amx* amx, const cell size, const char* func
 /// </summary>
 static const Request* get_request(Amx* amx, const cell id, const char* func)
 {
-	const auto request = IpHubClient::find_request(id);
+	const auto* const request = IpHubClient::find_request(id);
 
 	if (!request) {
 		constexpr auto err = "%s: Invalid request ID provided (%d).";
@@ -49,8 +49,8 @@ static cell AMX_NATIVE_CALL iphub_send_request(Amx* amx, cell* params)
 	enum Args { Count, Ip, Key, Attempts, Delay };
 
 	try {
-		const auto ip = AmxxApi::get_amx_string(amx, params[Ip], 0);
-		const auto key = AmxxApi::get_amx_string(amx, params[Key], 1);
+		auto* const ip = AmxxApi::get_amx_string(amx, params[Ip], 0);
+		auto* const key = AmxxApi::get_amx_string(amx, params[Key], 1);
 
 		const Request request = Request::create().amx(amx).ip(ip).key(key).attempts(params[Attempts]).delay(params[Delay]);
 		IpHubClient::enqueue_request(request);
@@ -70,7 +70,7 @@ static cell AMX_NATIVE_CALL iphub_request_ip(Amx* amx, cell* params)
 	enum Args { Count, Request, Buffer, BufferSize };
 
 	const auto buf_size = params[BufferSize];
-	const auto request = get_request(amx, params[Request], __func__);
+	const auto* const request = get_request(amx, params[Request], __func__);
 
 	if (!request || !check_string_buffer_size(amx, buf_size, __func__))
 		return 0;
@@ -88,7 +88,7 @@ static cell AMX_NATIVE_CALL iphub_request_key(Amx* amx, cell* params)
 	enum Args { Count, Request, Buffer, BufferSize };
 
 	const auto buf_size = params[BufferSize];
-	const auto request = get_request(amx, params[Request], __func__);
+	const auto* const request = get_request(amx, params[Request], __func__);
 
 	if (!request || !check_string_buffer_size(amx, buf_size, __func__))
 		return 0;
@@ -105,7 +105,7 @@ static cell AMX_NATIVE_CALL iphub_request_attempts(Amx* amx, cell* params)
 {
 	enum Args { Count, Request };
 
-	const auto request = get_request(amx, params[Request], __func__);
+	const auto* const request = get_request(amx, params[Request], __func__);
 
 	return request ? request->attempts() : 0;
 }
@@ -116,7 +116,7 @@ static cell AMX_NATIVE_CALL iphub_request_delay(Amx* amx, cell* params)
 {
 	enum Args { Count, Request };
 
-	const auto request = get_request(amx, params[Request], __func__);
+	const auto* const request = get_request(amx, params[Request], __func__);
 
 	return request ? request->delay() : 0;
 }
@@ -127,7 +127,7 @@ static cell AMX_NATIVE_CALL iphub_request_initiator(Amx* amx, cell* params)
 {
 	enum Args { Count, Request };
 
-	const auto request = get_request(amx, params[Request], __func__);
+	const auto* const request = get_request(amx, params[Request], __func__);
 
 	return request ? AmxxApi::find_amx_script_by_amx(request->amx()) : -1;
 }
@@ -138,7 +138,7 @@ static cell AMX_NATIVE_CALL iphub_initiated_by_me(Amx* amx, cell* params)
 {
 	enum Args { Count, Request };
 
-	const auto request = get_request(amx, params[Request], __func__);
+	const auto* const request = get_request(amx, params[Request], __func__);
 
 	return request && request->amx() == amx;
 }

@@ -17,7 +17,7 @@ class Response;
 /// Class RequestObserver.
 /// </summary>
 class RequestObserver {
-public:	
+public:
 	/// <summary>
 	/// </summary>
 	virtual ~RequestObserver()

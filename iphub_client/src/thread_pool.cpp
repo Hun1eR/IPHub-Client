@@ -47,7 +47,7 @@ static void detach_threads(const std::vector<pthread_t>& workers)
 /// </summary>
 void* thread_pool_work(void* arg)
 {
-	const auto thread_pool = static_cast<ThreadPool*>(arg);
+	auto* const thread_pool = static_cast<ThreadPool*>(arg);
 
 	while (!thread_pool->stop_.load(std::memory_order_relaxed)) {
 		std::function<void()> task;

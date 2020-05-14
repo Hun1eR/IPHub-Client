@@ -117,7 +117,7 @@ void IpHubClient::clear_request_queue()
 /// </summary>
 void IpHubClient::add_observer(RequestObserver* observer)
 {
-	for (const auto e : g_observer_list) {
+	for (auto* const e : g_observer_list) {
 		if (e == observer)
 			return;
 	}
@@ -154,7 +154,7 @@ void IpHubClient::on_response_received(const Response& response)
 /// </summary>
 void IpHubClient::notify_request_queued(const Request& request)
 {
-	for (const auto observer : g_observer_list)
+	for (auto* const observer : g_observer_list)
 		observer->request_queued(request);
 }
 
@@ -162,7 +162,7 @@ void IpHubClient::notify_request_queued(const Request& request)
 /// </summary>
 void IpHubClient::notify_request_in_progress(const Request& request)
 {
-	for (const auto observer : g_observer_list)
+	for (auto* const observer : g_observer_list)
 		observer->request_in_progress(request);
 }
 
@@ -170,6 +170,6 @@ void IpHubClient::notify_request_in_progress(const Request& request)
 /// </summary>
 void IpHubClient::notify_response_received(const Request& request, const Response& response)
 {
-	for (const auto observer : g_observer_list)
+	for (auto* const observer : g_observer_list)
 		observer->response_received(request, response);
 }
