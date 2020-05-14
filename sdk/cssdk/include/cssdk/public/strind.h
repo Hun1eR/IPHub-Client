@@ -96,9 +96,7 @@ private:
 	unsigned int string_index_ = 0;
 };
 
-inline Strind::Strind(const unsigned int index) : string_index_(index)
-{
-}
+inline Strind::Strind(const unsigned int index) : string_index_(index) {}
 
 inline const char* Strind::c_str() const
 {

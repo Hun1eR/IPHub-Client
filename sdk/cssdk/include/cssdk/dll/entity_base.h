@@ -574,9 +574,7 @@ class EntityHandle {
 public:
 	/// <summary>
 	/// </summary>
-	EntityHandle() : edict_(nullptr), serial_number_(0)
-	{
-	}
+	EntityHandle() : edict_(nullptr), serial_number_(0) {}
 
 	/// <summary>
 	/// </summary>

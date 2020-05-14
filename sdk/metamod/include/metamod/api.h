@@ -125,7 +125,7 @@ inline MetaResult meta_result_previous()
 template <typename T>
 T meta_result_orig_ret()
 {
-	return *reinterpret_cast<T*>(g_meta_globals->orig_ret);
+	return *static_cast<T*>(g_meta_globals->orig_ret);
 }
 
 /// <summary>
@@ -134,7 +134,7 @@ T meta_result_orig_ret()
 template <typename T>
 T meta_result_override_ret()
 {
-	return *reinterpret_cast<T*>(g_meta_globals->override_ret);
+	return *static_cast<T*>(g_meta_globals->override_ret);
 }
 
 #define RETURN_META(result) /* NOLINT(cppcoreguidelines-macro-usage) */ \
